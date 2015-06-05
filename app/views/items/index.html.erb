@@ -1,9 +1,3 @@
-<div class="page-header">
-  <h1>
-    Items
-    <a href="/items/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
-  </h1>
-</div>
 
 <!-- Responsive, Isotope-based layout example -->
 
@@ -26,7 +20,7 @@
       </form>
       <ul class="list-group">
         <li>
-          <a href="all_items.html">All Items  <span class="badge">14</span></a>
+          <a href="/#all">All Items  <span class="badge">14</span></a>
           </li>
         <li><a href="#"></span>Art  <span class="badge">14</a></li>
         <li><a href="#">Collectables  <span class="badge">14</span></a></li>
@@ -43,10 +37,7 @@
         <li>category  <span class="badge">14</span></li>
       </ul>
     </div>
-    <div class="col-md-10">
 
-      <hr>
-    </div>
     <div class="col-md-10">
     <h3>Sponsors:</h3>
       <div class="col-md-2"><img src="porter.jpg" class="sponsor" width="150" height="150"></div>
@@ -83,8 +74,7 @@
           <img class="item" src="<%= item.photo %>" width="100" height="100">
         </div>
         <div class="col-md-5">
-          <a href="#"><%= item.item_name %></a>
-          <p> <%= item.description %></p>
+          <a href="/items/"><%= item.item_name %></a>
         </div>
         <div class="col-md-1">
         </div>
@@ -98,32 +88,10 @@
     </div>
   </div>
   <% end %>
-  <div class="row">
-    <div class="col-md-12" align="right">
-      <h5>follow us on
-        <button class="btn" type="button">
-          <a href="http://www.facebook.com/healinghealthandhope" target="_blank">
-            <img src="https://lh5.ggpht.com/_XklY7dK6yGsYt53X15RIp7-tbdjWMwQwl_iUAcW-uSq_8zAprmywdn5DQfBHvxZurs1=w300" width="30" height="30">
-          </a>
-        </button>
-        <button class="btn" type="button">
-          <a href="http://www.twitter.com/hlnghlthhpe" target="_blank">
-            <img src="http://keithlhobbs.com/wp-content/uploads/Twitter_Logo-2uiuyy97zdiyemtnaty4ga.jpg" width="30" height="30">
-          </a>
-        </button>
-      </h5>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12" align="center">
-      2004-2015 Healing, Health, & Hope, Inc.
-    </div>
-  </div>
-</div>
-<hr>
 
-<div class="row isotope-container">
-<% @items.each do |item| %>
+
+<a id="all"><div class="row isotope-container">
+<% @items.each do |item| %></a>
   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -132,25 +100,25 @@
       <div class="panel-body">
         <dl>
           <dt>Item name</dt>
-          <dd><%= item.item_name %></dd>
+          <dd><a href="/items/<%= item.id %>" target="_blank"><%= item.item_name %></a></dd>
 
           <dt>Description</dt>
           <dd><%= item.description %></dd>
 
           <dt>Value</dt>
-          <dd><%= item.value %></dd>
+          <dd>$<%= item.value %></dd>
 
           <dt>Starting bid</dt>
-          <dd><%= item.starting_bid %></dd>
+          <dd>$<%= item.starting_bid %></dd>
 
-          <dt>Increment</dt>
-          <dd><%= item.incr %></dd>
+          <dt>Bid Increase</dt>
+          <dd>$<%= item.incr %></dd>
 
           <dt>Donor</dt>
           <dd><%= item.donor %></dd>
 
           <dt>Photo</dt>
-          <dd><img src="<%= item.photo %>"></dd>
+          <dd><a href="<%= item.photo %>" target="_blank"><img src="<%= item.photo %>" width="200"></dd></a>
 
           <dt>Category</dt>
           <dd><%= item.category %></dd>
@@ -220,5 +188,27 @@
     }
   }
 </script>
-
+  <div class="row">
+    <div class="col-md-12" align="right">
+      <h5>follow us on
+        <button class="btn" type="button">
+          <a href="http://www.facebook.com/healinghealthandhope" target="_blank">
+            <img src="https://lh5.ggpht.com/_XklY7dK6yGsYt53X15RIp7-tbdjWMwQwl_iUAcW-uSq_8zAprmywdn5DQfBHvxZurs1=w300" width="30" height="30">
+          </a>
+        </button>
+        <button class="btn" type="button">
+          <a href="http://www.twitter.com/hlnghlthhpe" target="_blank">
+            <img src="http://keithlhobbs.com/wp-content/uploads/Twitter_Logo-2uiuyy97zdiyemtnaty4ga.jpg" width="30" height="30">
+          </a>
+        </button>
+      </h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12" align="center">
+      2004-2015 Healing, Health, & Hope, Inc.
+    </div>
+  </div>
+</div>
+<hr>
 <!-- End responsive, Isotope-based layout example -->
