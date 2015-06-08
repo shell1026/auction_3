@@ -1,7 +1,11 @@
 class ItemsController < ApplicationController
+def categories
+  @item = Item.find(params[:category])
+end
 
   def index
     @items = Item.all
+    @unique_cat = @items.map{|t|t.category}.uniq.sort
   end
 
   def show

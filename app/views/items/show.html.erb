@@ -17,23 +17,23 @@
               <dd><%= @item.description %></dd>
 
               <dt>Value</dt>
-              <dd><%= @item.value %></dd>
+              <dd>$<%= @item.value %></dd>
 
 
               <dt>Donor</dt>
               <dd><%= @item.donor %></dd>
 
               <dt>Photo</dt>
-              <dd><%= @item.photo %></dd>
+              <dd><img src="<%= @item.photo %>" width="500"></dd>
 
               <dt>Category</dt>
-              <dd><%= @item.category %></dd>
+              <dd><%= @item.category.capitalize %></dd>
 
               <dt>Starting bid</dt>
-              <dd><%= @item.starting_bid %></dd>
+              <dd>$<%= @item.starting_bid %></dd>
 
-              <dt>Increment</dt>
-              <dd><%= @item.incr %></dd>
+              <dt>Bid Increase</dt>
+              <dd>$<%= @item.incr %></dd>
 
             </dl>
             <div class="btn-group btn-group-justified">
