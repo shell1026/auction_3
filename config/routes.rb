@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   get "/delete_item/:id", :controller => "items", :action => "destroy"
   #------------------------------
 
-get "/cat/:category", :controller => "items", :action => "categories"
+get "/cat/:category", :controller => "application", :action => "categories"
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

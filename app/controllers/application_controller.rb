@@ -6,3 +6,8 @@ end
 def first_name
   :first_name
 end
+def categories
+  @items = Item.all
+    @unique_cat = @items.map{|t|t.category}.uniq.sort
+end
+

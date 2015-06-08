@@ -2,6 +2,10 @@ class BidsController < ApplicationController
   def index
     @bids = Bid.all
   end
+def categories
+  @items = Item.all
+    @unique_cat = @items.map{|t|t.category}.uniq.sort
+end
 
   def show
     @bid = Bid.find(params[:id])
