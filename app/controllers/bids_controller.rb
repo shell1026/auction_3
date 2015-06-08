@@ -22,6 +22,15 @@ end
     @unique_cat = @items.map{|t|t.category}.uniq.sort
   end
 
+  def new_id
+    @bid = Bid.new
+    @bid.item_id = params[:id]
+    @bid.user_name = current_user.user_name
+
+    @items = Item.all
+    @unique_cat = @items.map{|t|t.category}.uniq.sort
+  end
+
   def create
     @items = Item.all
     @unique_cat = @items.map{|t|t.category}.uniq.sort
@@ -32,10 +41,11 @@ end
     @bid.bid_amount = params[:bid_amount]
 
     if @bid.save
-      redirect_to "/bids", :notice => "Bid created successfully."
+      redirect_to "/items", :notice => "Bid created successfully."
     else
       render 'new'
     end
+
   end
 
   def edit

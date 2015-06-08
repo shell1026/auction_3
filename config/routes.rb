@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # CREATE
   root "items#index"
   get "/bids/new", :controller => "bids", :action => "new"
+  get "/bids/new/:id", :controller => "bids", :action => "new_id"
   post "/create_bid", :controller => "bids", :action => "create"
 
   # READ
