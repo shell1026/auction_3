@@ -40,13 +40,23 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="/items">Auction Items</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Auction Items <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="/items">All Items</a></li>
+              <% @unique_cat.each do |category| %>
+              <li><a href="#"><%= category %></a></li>
+              <% end %>
+            </ul>
+          </li>
           <li><a href="http://www.healinghh.org/about-us">About H.H.H.</a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
+        <form action="cheatsheet.html">
+
           <% if current_user !=nil %>
-            <li><a href="/users/edit"><%= :first_name %></a></li>
+            <li><a href="/users/edit"><%= current_user.first_name %></a></li>
             <li><a href="/users/sign_out" data-method="delete" rel="nofollow">Sign out</a></li>
           <% else %>
             <li><a href="/users/sign_up">Sign up</a></li>
