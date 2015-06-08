@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   # READ
   get "/items", :controller => "items", :action => "index"
+  get "/items/0", :controller => "items", :action => "index"
   get "/items/:id", :controller => "items", :action => "show"
 
   # UPDATE
@@ -35,9 +36,9 @@ Rails.application.routes.draw do
 
   # DELETE
   get "/delete_item/:id", :controller => "items", :action => "destroy"
-  #------------------------------
 
-get "/cat/:category", :controller => "application", :action => "categories"
+  #CATEGORIZED
+  get "/cat/:category", :controller => "items", :action => "cat"
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

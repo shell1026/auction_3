@@ -1,6 +1,8 @@
 class BidsController < ApplicationController
   def index
     @bids = Bid.all
+    @items = Item.all
+    @unique_cat = @items.map{|t|t.category}.uniq.sort
   end
 
 def categories
@@ -10,13 +12,20 @@ end
 
   def show
     @bid = Bid.find(params[:id])
+    @items = Item.all
+    @unique_cat = @items.map{|t|t.category}.uniq.sort
   end
 
   def new
     @bid = Bid.new
+    @items = Item.all
+    @unique_cat = @items.map{|t|t.category}.uniq.sort
   end
 
   def create
+    @items = Item.all
+    @unique_cat = @items.map{|t|t.category}.uniq.sort
+
     @bid = Bid.new
     @bid.item_id = params[:item_id]
     @bid.user_name = params[:user_name]
