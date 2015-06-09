@@ -27,6 +27,8 @@ end
     @bid.item_id = params[:id]
     @bid.user_name = current_user.user_name
 
+    @list = Bid.all
+
     @items = Item.all
     @unique_cat = @items.map{|t|t.category}.uniq.sort
   end
