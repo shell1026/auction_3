@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150608231106) do
+ActiveRecord::Schema.define(version: 20150609205229) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20150608231106) do
 
   create_table "bids", force: :cascade do |t|
     t.integer  "item_id"
-    t.string   "user_name"
+    t.string   "user_id"
     t.integer  "bid_amount"
     t.datetime "created_at"
     t.datetime "updated_at"

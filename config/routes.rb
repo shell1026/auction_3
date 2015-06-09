@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   get "/delete_item/:id", :controller => "items", :action => "destroy"
 
   #CATEGORIZED
-  get "/cat/:category", :controller => "items", :action => "cat"
+  get "/cat/", :controller => "items", :action => "cat"
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

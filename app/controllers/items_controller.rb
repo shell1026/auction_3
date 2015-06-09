@@ -9,13 +9,15 @@ class ItemsController < ApplicationController
   end
 
   def cat
-    @item = Item.find_by(params[:category])
+    @item = Item.find(params[:id])
+
     @items = Item.all
     @unique_cat = @items.map{|t|t.category}.uniq.sort
   end
 
   def show
     @item = Item.find(params[:id])
+
     @items = Item.all
     @unique_cat = @items.map{|t|t.category}.uniq.sort
   end
