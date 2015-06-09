@@ -45,7 +45,7 @@
             <ul class="dropdown-menu" role="menu">
               <li><a href="/items">All Items</a></li>
               <% @unique_cat.each do |category| %>
-              <li><a href="#"><%= category %></a></li>
+              <li><a href="/cat/#<%= category %>"><%= category %></a></li>
               <% end %>
             </ul>
           </li>

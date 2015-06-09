@@ -9,7 +9,8 @@ class ItemsController < ApplicationController
   end
 
   def cat
-    @item = Item.find(params[:id])
+    @sort = Item.all
+    @item = @sort.sort_by {|obj| obj.category}
 
     @items = Item.all
     @unique_cat = @items.map{|t|t.category}.uniq.sort

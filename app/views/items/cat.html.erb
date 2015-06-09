@@ -1,59 +1,187 @@
-<!-- Responsive panel example-->
 
-<div class="row">
-  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Item #<%= @item.id %></h3>
+<!-- Responsive, Isotope-based layout example -->
+
+
+<div class="container">
+  <div class="row">
+    <hr>
+    <div class="col-md-12 featured">
+      <div class="col-md-2">
       </div>
-      <div class="panel-body">
-        <div class="row">
-          <div class="col-md-12">
-            <dl class="dl-horizontal">
-              <dt>Item name</dt>
-              <dd><%= @item.item_name %></dd>
+      <div class="col-md-7">
+      </div>
+      <div class="col-md-1">
+        <p><span style="text-decoration: underline;">Category</p></span>
+      </div>
+      <div class="col-md-1">
+        <p><span style="text-decoration: underline;">#Bids</p></span>
+      </div>
+      <div class="col-md-1">
+        <p><span style="text-decoration: underline;">Bid</p></span>
+      </div>
+    </div>
+  </div>
+  <% @unique_cat.each do |category| %>
+  <% curr_cat = Item.where(category: category) %>
+  <hr>
+  <a id="<%= category %>">
+    <hr><hr>
+    <h4><%= category %></h4></a>
+    <% curr_cat.each do |stuff| %>
 
-              <dt>Description</dt>
-              <dd><%= @item.description %></dd>
 
-              <dt>Value</dt>
-              <dd>$<%= @item.value %></dd>
+    <div class="row">
+      <div class="col-md-12">
+       <div class="col-md-2">
+         <img class="item" src="<%= stuff.photo %>" width="100" height="100">
+       </div>
+       <div class="col-md-7">
+         <a href="/items/<%= stuff.id %>"><%= stuff.item_name %></a>
+       </div>
+       <div class="col-md-1">
+        <%= stuff.category %>
+      </div>
+      <div class="col-md-1">
+        no
+      </div>
+      <div class="col-md-1">
+        no
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <% end %>
 
+  <div class="col-md-12">
+    <h3>Sponsors:</h3>
+    <div class="col-md-2"><img src="/images/sponsor/porter.jpg" class="sponsor" width="150" height="150"></div>
+    <div class="col-md-2"><img class="sponsor" src="/images/sponsor/bmc.png" width="150" height="150"></div>
+    <div class="col-md-2"><img class="sponsor" src="/images/sponsor/theark.jpg" width="150" height="150"></div>
+    <div class="col-md-2"><img class="sponsor" src="/images/sponsor/swartzretson.jpg" width="150" height="150"></div>
+    <div class="col-md-2"><img class="sponsor" src="http://img2.wikia.nocookie.net/__cb20130511180903/legendmarielu/images/b/b4/No_image_available.jpg" width="150" height="150"></div>
+    <div class="col-md-2"><img class="sponsor" src="http://img2.wikia.nocookie.net/__cb20130511180903/legendmarielu/images/b/b4/No_image_available.jpg" width="150" height="150"></div>
+    <hr>
+  </div>
 
-              <dt>Donor</dt>
-              <dd><%= @item.donor %></dd>
+  <!-- <a id="all"><div class="row isotope-container">
+    <% @items.each do |item| %></a>
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Item #<%= item.id %></h3>
+        </div>
+        <div class="panel-body">
+          <dl>
+            <dt>Item name</dt>
+            <dd><a href="/items/<%= item.id %>" target="_blank"><%= item.item_name %></a></dd>
 
-              <dt>Photo</dt>
-              <dd><img src="<%= @item.photo %>" width="500"></dd>
+            <dt>Description</dt>
+            <dd><%= item.description %></dd>
 
-              <dt>Category</dt>
-              <dd><%= @item.category.capitalize %></dd>
+            <dt>Value</dt>
+            <dd>$<%= item.value %></dd>
 
-              <dt>Starting bid</dt>
-              <dd>$<%= @item.starting_bid %></dd>
+            <dt>Starting bid</dt>
+            <dd>$<%= item.starting_bid %></dd>
 
-              <dt>Bid Increase</dt>
-              <dd>$<%= @item.incr %></dd>
+            <dt>Bid Increase</dt>
+            <dd>$<%= item.incr %></dd>
 
-            </dl>
-            <div class="btn-group btn-group-justified">
-              <a href="/items" class="btn btn-primary">
-                <i class="fa fa-chevron-left"></i>
-              </a>
+            <dt>Donor</dt>
+            <dd><%= item.donor %></dd>
 
-              <a href="/items/<%= @item.id %>/edit" class="btn btn-warning">
-                <i class="fa fa-edit"></i>
-              </a>
+            <dt>Photo</dt>
+            <dd><a href="<%= item.photo %>" target="_blank"><img src="<%= item.photo %>" width="200"></dd></a>
 
-              <a href="/delete_item/<%= @item.id %>" class="btn btn-danger" rel="nofollow">
-                <i class="fa fa-trash-o"></i>
-              </a>
-            </div>
+            <dt>Category</dt>
+            <dd><%= item.category %></dd>
+
+          </dl>
+          <div class="btn-group btn-group-justified">
+            <a href="/items/<%= item.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+
+            <a href="/items/<%= item.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+
+            <a href="/delete_item/<%= item.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
           </div>
         </div>
       </div>
     </div>
+    <% end %>
+  </div> -->
+
+  <!-- You can ignore the following. It's a quick and dirty example of how to get a Pinterest-style layout with quick search. -->
+  <!-- JavaScript for Isotope layout and quicksearch -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.1.8/imagesloaded.pkgd.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.0.0/isotope.pkgd.min.js"></script>
+  <script>
+    $(function() {
+    // quick search regex
+    var qsRegex;
+
+    // init Isotope
+    var $container = $('.isotope-container');
+
+    $container.imagesLoaded(function() {
+      $container.isotope({
+        itemSelector: '.isotope-item',
+        layoutMode: 'masonry',
+        filter: function() {
+          return qsRegex ? $(this).text().match( qsRegex ) : true;
+        }
+      })
+    });
+
+    // use value of search field to filter
+    var $quicksearch = $('#quicksearch').keyup( debounce( function() {
+      qsRegex = new RegExp( $quicksearch.val(), 'gi' );
+      $container.isotope();
+    }, 200 ) );
+
+  });
+
+  // debounce so filtering doesn't happen every millisecond
+  function debounce( fn, threshold ) {
+    var timeout;
+    return function debounced() {
+      if ( timeout ) {
+        clearTimeout( timeout );
+      }
+      function delayed() {
+        fn();
+        timeout = null;
+      }
+      timeout = setTimeout( delayed, threshold || 100 );
+    }
+  }
+</script>
+<div class="row">
+  <div class="col-md-12" align="right">
+    <h5>follow us on
+      <button class="btn" type="button">
+        <a href="http://www.facebook.com/healinghealthandhope" target="_blank">
+          <img src="https://lh5.ggpht.com/_XklY7dK6yGsYt53X15RIp7-tbdjWMwQwl_iUAcW-uSq_8zAprmywdn5DQfBHvxZurs1=w300" width="30" height="30">
+        </a>
+      </button>
+      <button class="btn" type="button">
+        <a href="http://www.twitter.com/hlnghlthhpe" target="_blank">
+          <img src="http://keithlhobbs.com/wp-content/uploads/Twitter_Logo-2uiuyy97zdiyemtnaty4ga.jpg" width="30" height="30">
+        </a>
+      </button>
+    </h5>
   </div>
 </div>
-
-<!-- End responsive panel example -->
+<div class="row">
+  <div class="col-md-12" align="center">
+    2004-2015 Healing, Health, & Hope, Inc.
+  </div>
+</div>
+</div>
+<hr>
+<!-- End responsive, Isotope-based layout example -->
