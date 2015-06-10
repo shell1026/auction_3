@@ -3,7 +3,7 @@ class Item < ActiveRecord::Base
 validates :description, presence: true
 validates :value, presence: true
 validates :starting_bid, presence: true
-validates :increment, presence: true
+validates :incr, presence: true
 validates :donor, presence: true
 validates :photo, presence: true
 validates :category,  presence:true
