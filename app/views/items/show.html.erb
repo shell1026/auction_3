@@ -35,6 +35,9 @@
               <dt>Bid Increase</dt>
               <dd>$<%= @item.incr %></dd>
 
+              <dt>High Bid</dt>
+              <dd>$<%= @item.bids.maximum("bid_amount") %></dd>
+
             </dl>
             <div class="btn-group btn-group-justified">
               <a href="/items/<%= @item.id.to_i-1 %>" class="btn btn-primary">

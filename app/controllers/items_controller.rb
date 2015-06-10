@@ -21,6 +21,8 @@ class ItemsController < ApplicationController
 
     @items = Item.all
     @unique_cat = @items.map{|t|t.category}.uniq.sort
+
+    @bid = Bid.all
   end
 
   def new
