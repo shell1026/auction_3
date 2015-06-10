@@ -24,7 +24,7 @@
               <dd><%= @item.donor %></dd>
 
               <dt>Photo</dt>
-              <dd><img src="<%= @item.photo %>" width="500"></dd>
+              <dd><%= image_tag @item.photo, width: 200 %></dd>
 
               <dt>Category</dt>
               <dd><%= @item.category.capitalize %></dd>

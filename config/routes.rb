@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+
+  # devise_for :admin_users, ActiveAdmin::Devise.config
   # Routes for the Bid resource:
   # CREATE
   root "items#index"
   get "/bids/new", :controller => "bids", :action => "new"
-  get "/bids/new/:id", :controller => "bids", :action => "new_id"
+  get "/bids/new/:item_id", :controller => "bids", :action => "new_id"
   post "/create_bid", :controller => "bids", :action => "create"
 
   # READ

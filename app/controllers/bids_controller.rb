@@ -24,13 +24,15 @@ end
 
   def new_id
     @bid = Bid.new
-    @bid.item_id = params[:id]
+    @bid.item_id = params[:item_id]
     @bid.user_id = current_user.id
 
     @list = Bid.all
 
     @items = Item.all
     @unique_cat = @items.map{|t|t.category}.uniq.sort
+
+
   end
 
   def create
@@ -39,7 +41,7 @@ end
 
     @bid = Bid.new
     @bid.item_id = params[:item_id]
-    @bid.user_id = params[:user_id]
+    @bid.user_id = current_user.id
     @bid.bid_amount = params[:bid_amount]
 
     if @bid.save
