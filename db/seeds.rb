@@ -1,4 +1,4 @@
-user = User.create(email: "michelle@example.com", password: "password", first_name: "Michelle", last_name: "Retson", address: "123 Fake St.", city: "Chicago", state: "IL", zip: "60614", company: "HHH")
+user = User.create(email: "michelle@example.com", password: "password", first_name: "Michelle", last_name: "Retson", address: "123 Fake St.", city: "Chicago", state: "IL", zip: "60614", company: "HHH", phone: "555-555-5555")
 
 humidor = Item.create(
   {
