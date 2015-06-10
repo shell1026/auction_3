@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   # devise_for :admin_users, ActiveAdmin::Devise.config
+  #ActiveAdmin.routes(self)
   # Routes for the Bid resource:
   # CREATE
   root "items#index"
