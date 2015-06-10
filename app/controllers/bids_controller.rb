@@ -25,7 +25,7 @@ end
   def new_id
     @bid = Bid.new
     @bid.item_id = params[:id]
-    @bid.user_name = current_user.user_name
+    @bid.user_id = current_user.id
 
     @list = Bid.all
 
@@ -39,7 +39,7 @@ end
 
     @bid = Bid.new
     @bid.item_id = params[:item_id]
-    @bid.user_name = params[:user_name]
+    @bid.user_id = params[:user_id]
     @bid.bid_amount = params[:bid_amount]
 
     if @bid.save
@@ -58,7 +58,7 @@ end
     @bid = Bid.find(params[:id])
 
     @bid.item_id = params[:item_id]
-    @bid.user_name = params[:user_name]
+    @bid.user_id = params[:user_id]
     @bid.bid_amount = params[:bid_amount]
 
     if @bid.save

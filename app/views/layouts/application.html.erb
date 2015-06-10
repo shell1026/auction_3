@@ -44,7 +44,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Auction Items <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="/items">All Items</a></li>
-              <% @unique_cat.each do |category| %>
+              <% unique_cat.each do |category| %>
               <li><a href="/cat/#<%= category %>"><%= category %></a></li>
               <% end %>
             </ul>
