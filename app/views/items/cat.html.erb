@@ -3,6 +3,10 @@
 
 
 <div class="container">
+  <% @unique_cat.each do |category| %>
+  <% curr_cat = Item.where(category: category) %>
+  <hr>
+  <a id="<%= category %>">
   <div class="row">
     <hr>
     <div class="col-md-12 featured">
@@ -20,14 +24,11 @@
         <p><span style="text-decoration: underline;">#Bids</p></span>
       </div>
       <div class="col-md-1">
-        <p><span style="text-decoration: underline;">Bid</p></span>
+        <p><span style="text-decoration: underline;">High Bid</p></span>
       </div>
     </div>
   </div>
-  <% @unique_cat.each do |category| %>
-  <% curr_cat = Item.where(category: category) %>
-  <hr>
-  <a id="<%= category %>">
+
     <hr><hr>
     <h4><%= category %></h4></a>
     <% curr_cat.each do |stuff| %>
@@ -51,7 +52,7 @@
         <%= stuff.bids.count %>
       </div>
       <div class="col-md-1">
-        <%= stuff.bids.maximum("bid_amount") %>
+        $<%= stuff.bids.maximum("bid_amount") %>
       </div>
     </div>
   </div>
@@ -124,48 +125,48 @@
 
   <!-- You can ignore the following. It's a quick and dirty example of how to get a Pinterest-style layout with quick search. -->
   <!-- JavaScript for Isotope layout and quicksearch -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.1.8/imagesloaded.pkgd.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.0.0/isotope.pkgd.min.js"></script>
-  <script>
-    $(function() {
-    // quick search regex
-    var qsRegex;
+  // <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.1.8/imagesloaded.pkgd.min.js"></script>
+  // <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.0.0/isotope.pkgd.min.js"></script>
+  // <script>
+  //   $(function() {
+  //   // quick search regex
+  //   var qsRegex;
 
-    // init Isotope
-    var $container = $('.isotope-container');
+  //   // init Isotope
+  //   var $container = $('.isotope-container');
 
-    $container.imagesLoaded(function() {
-      $container.isotope({
-        itemSelector: '.isotope-item',
-        layoutMode: 'masonry',
-        filter: function() {
-          return qsRegex ? $(this).text().match( qsRegex ) : true;
-        }
-      })
-    });
+  //   $container.imagesLoaded(function() {
+  //     $container.isotope({
+  //       itemSelector: '.isotope-item',
+  //       layoutMode: 'masonry',
+  //       filter: function() {
+  //         return qsRegex ? $(this).text().match( qsRegex ) : true;
+  //       }
+  //     })
+  //   });
 
-    // use value of search field to filter
-    var $quicksearch = $('#quicksearch').keyup( debounce( function() {
-      qsRegex = new RegExp( $quicksearch.val(), 'gi' );
-      $container.isotope();
-    }, 200 ) );
+  //   // use value of search field to filter
+  //   var $quicksearch = $('#quicksearch').keyup( debounce( function() {
+  //     qsRegex = new RegExp( $quicksearch.val(), 'gi' );
+  //     $container.isotope();
+  //   }, 200 ) );
 
-  });
+  // });
 
-  // debounce so filtering doesn't happen every millisecond
-  function debounce( fn, threshold ) {
-    var timeout;
-    return function debounced() {
-      if ( timeout ) {
-        clearTimeout( timeout );
-      }
-      function delayed() {
-        fn();
-        timeout = null;
-      }
-      timeout = setTimeout( delayed, threshold || 100 );
-    }
-  }
+  // // debounce so filtering doesn't happen every millisecond
+  // function debounce( fn, threshold ) {
+  //   var timeout;
+  //   return function debounced() {
+  //     if ( timeout ) {
+  //       clearTimeout( timeout );
+  //     }
+  //     function delayed() {
+  //       fn();
+  //       timeout = null;
+  //     }
+  //     timeout = setTimeout( delayed, threshold || 100 );
+  //   }
+  // }
 </script>
 <div class="row">
   <div class="col-md-12" align="right">

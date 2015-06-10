@@ -9,9 +9,9 @@
       <p class="text-danger">Auction starts: September 16, 2015 8:00 AM;
         Auction ends: September 18, 8:00 PM
       </p>
-      <form action="cheatsheet.html">
+<!--       <form action="cheatsheet.html">
         <input type="text" id="quicksearch" placeholder="Search Items" class="form-control">
-      </form>
+      </form> -->
     </div>
   </div>
   <div class="row">
@@ -34,7 +34,7 @@
         <p> <span style="text-decoration: underline;">#Bids</p>
       </div>
       <div class="col-md-1">
-        <p> <span style="text-decoration: underline;">Bid</p>
+        <p> <span style="text-decoration: underline;">High Bid</p>
       </div>
     </div>
   </div>
@@ -56,7 +56,7 @@
         <%= item.bids.count %>
        </div>
        <div class="col-md-1">
-        <%= item.bids.maximum("bid_amount") %>
+        $<%= item.bids.maximum("bid_amount") %>
        </div>
     </div>
   </div>
