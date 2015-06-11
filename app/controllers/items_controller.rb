@@ -27,10 +27,6 @@ class ItemsController < ApplicationController
     @unique_cat = @items.map{|t|t.category}.uniq.sort
 
     @bid = Bid.all
-
-    max_amt = @item.bids.maximum("bid_amount")
-    @high_bid = @item.bids.find_by({bid_amount: max_amt})
-
   end
 
   def new
