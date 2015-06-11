@@ -26,7 +26,7 @@ buckle = Item.create(
   }
 )
 
-buckle = Item.create(
+car = Item.create(
   {
     item_name: "Car Care Basket",
     description: "$25 Gift Card for Advanced Auto Parts, various car cleaning items",
@@ -50,6 +50,14 @@ humidor_bid = Bid.create(
 buckle_bid = Bid.create(
   {
     item_id: buckle.id,
+    user_id: user.id,
+    bid_amount: 20
+  }
+)
+
+car_bid = Bid.create(
+  {
+    item_id: car.id,
     user_id: user.id,
     bid_amount: 20
   }
