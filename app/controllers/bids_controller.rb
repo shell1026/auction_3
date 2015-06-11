@@ -18,8 +18,15 @@ end
 
   def new
     @bid = Bid.new
+
     @items = Item.all
     @unique_cat = @items.map{|t|t.category}.uniq.sort
+
+
+    #@users = User.all
+    #@user = @users.map{|t|t.user_name}.uniq.sort
+
+
   end
 
   def new_id
@@ -31,7 +38,6 @@ end
 
     @items = Item.all
     @unique_cat = @items.map{|t|t.category}.uniq.sort
-
 
   end
 

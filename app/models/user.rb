@@ -11,7 +11,12 @@ validates :state, presence: true
 validates :zip, presence: true
 validates :phone, presence: true
 validates :email, presence: true
+validates_uniqueness_of :user_name
+validates_uniqueness_of :email
 
 has_many :bids
 has_many :items, through: :bids
+
+
+
 end
