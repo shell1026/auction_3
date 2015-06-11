@@ -36,26 +36,28 @@
       </div>
     </div>
   </div>
-  <% @items.each do |item| %>
+  <% @items.each do |itemz| %>
   <div class="row">
     <div class="col-md-12">
        <div class="col-md-2">
-         <%= image_tag item.photo, width: 100, height: 100, class: "item" %>
+         <%= image_tag itemz.photo, width: 100, height: 100, class: "item" %>
        </div>
        <div class="col-md-6">
-         <a href="/items/<%= item.id %>"><%= item.item_name %></a>
-         <p><%= item.description %></p>
+         <a href="/items/<%= itemz.id %>"><%= itemz.item_name %></a>
+         <p><%= itemz.description %></p>
        </div>
        <div class="col-md-1">
        </div>
-       <div class="col-md-1"><a href="/cat/#<%= item.category %>"><%= item.category %></a>
+       <div class="col-md-1"><a href="/cat/#<%= itemz.category %>"><%= itemz.category %></a>
        </div>
        <div class="col-md-1">
-        <%= item.bids.count %>
+        <%= itemz.bids.count %>
        </div>
        <div class="col-md-1">
-        $<%= item.bids.maximum("bid_amount") %>
-
+        $<%= max_amount=itemz.bids.maximum("bid_amount") %>
+        <% high_bid= itemz.bids.find_by({bid_amount: max_amount}) %>
+        <%= high_bid.user.first_name %>
+        <%= high_bid.user.last_name %>
        </div>
     </div>
   </div>

@@ -14,6 +14,8 @@ end
     @bid = Bid.find(params[:id])
     @items = Item.all
     @unique_cat = @items.map{|t|t.category}.uniq.sort
+
+
   end
 
   def new
