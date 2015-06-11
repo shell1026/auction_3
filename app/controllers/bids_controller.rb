@@ -39,6 +39,7 @@ end
     @items = Item.all
     @unique_cat = @items.map{|t|t.category}.uniq.sort
 
+
   end
 
   def create
@@ -70,7 +71,7 @@ end
     @bid.bid_amount = params[:bid_amount]
 
     if @bid.save
-      redirect_to "/bids", :notice => "Bid updated successfully."
+      redirect_to "/items", :notice => "Bid updated successfully."
     else
       render 'edit'
     end

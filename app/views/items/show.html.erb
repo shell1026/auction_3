@@ -31,12 +31,14 @@
 
               <dt>Starting bid</dt>
               <dd>$<%= @item.starting_bid %></dd>
-
+              <dd></dd>
               <dt>Bid Increase</dt>
               <dd>$<%= @item.incr %></dd>
 
               <dt>High Bid</dt>
-              <dd>$<%= @item.bids.maximum("bid_amount") %></dd>
+              <dd>$<%= @item.bids.maximum("bid_amount") %>  </dd>
+              <dt>High Bidder</dt>
+              <dd><%= @high_bid.user.first_name %> <%= @high_bid.user.last_name %></dd>
 
             </dl>
             <div class="btn-group btn-group-justified">
