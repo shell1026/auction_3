@@ -41,6 +41,9 @@ end
     @items = Item.all
     @unique_cat = @items.map{|t|t.category}.uniq.sort
 
+    @bidz = Bid.all
+    max_amt = @bidz.maximum("bid_amount")
+    @high_bid = @bidz.find_by({bid_amount: max_amt})
 
   end
 
@@ -53,10 +56,14 @@ end
     @bid.user_id = current_user.id
     @bid.bid_amount = params[:bid_amount]
 
+    @bidz = Bid.all
+    max_amt = @bidz.maximum("bid_amount")
+
+
     if @bid.save
       redirect_to "/items", :notice => "Bid created successfully."
     else
-      render 'new'
+      render 'new_id'
     end
 
   end

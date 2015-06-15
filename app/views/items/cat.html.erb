@@ -50,6 +50,10 @@
       </div>
       <div class="col-md-1">
         $<%= stuff.bids.maximum("bid_amount") %>
+        $<%= max_amount=stuff.bids.maximum("bid_amount") %>
+        <% high_bid= stuff.bids.find_by({bid_amount: max_amount}) %>
+        <p><%= high_bid.user.first_name %>
+        <%= high_bid.user.last_name %></p>
       </div>
     </div>
   </div>

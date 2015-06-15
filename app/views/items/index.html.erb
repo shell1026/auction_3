@@ -56,8 +56,8 @@
        <div class="col-md-1">
         $<%= max_amount=itemz.bids.maximum("bid_amount") %>
         <% high_bid= itemz.bids.find_by({bid_amount: max_amount}) %>
-        <%= high_bid.user.first_name %>
-        <%= high_bid.user.last_name %>
+        <p><%= high_bid.user.first_name %>
+        <%= high_bid.user.last_name %></p>
        </div>
     </div>
   </div>

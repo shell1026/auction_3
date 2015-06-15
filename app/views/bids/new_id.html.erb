@@ -21,7 +21,6 @@
         <form action="/create_bid" method="post" class="form-horizontal">
           <!-- Hidden input for authenticity token to protect from forgery -->
           <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-
           <!-- Label and input for item_id -->
           <div class="form-group">
             <label for="item_id" class="col-sm-2 control-label">
@@ -53,8 +52,8 @@
            <label for="high_bid" class="col-sm-2 control-label">
             Current High Bid
           </label>
-          <div class="col-sm-2">
-            $<%= @bid.item.bids.maximum("bid_amount") %>
+          <div class="col-sm-10">
+            $<%= @bid.item.bids.maximum("bid_amount") %> <p><%= @high_bid.user.first_name %> <%= @high_bid.user.last_name %></p>
           </div>
         </div>
 
